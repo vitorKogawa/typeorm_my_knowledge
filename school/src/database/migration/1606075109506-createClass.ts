@@ -9,7 +9,7 @@ export default class CreateClass1606075109506 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         queryRunner.createTable(
             new Table({
-                name: 'class',
+                name: 'Class',
                 columns: [
                     {
                         name: 'id',
@@ -26,12 +26,12 @@ export default class CreateClass1606075109506 implements MigrationInterface {
                         type: 'integer'
                     },
                     {
-                        name: 'create_At',
+                        name: 'created_At',
                         type: 'timestamp',
                         default: 'now()'
                     },
                     {
-                        name: 'update_At',
+                        name: 'updated_At',
                         type: 'timestamp',
                         default: 'now()'
                     }
@@ -41,7 +41,7 @@ export default class CreateClass1606075109506 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        queryRunner.dropTable('class')
+        queryRunner.dropTable('Class')
     }
 
 }

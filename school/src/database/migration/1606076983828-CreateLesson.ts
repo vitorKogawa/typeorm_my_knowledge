@@ -19,6 +19,16 @@ export default class CreateLesson1606076983828 implements MigrationInterface {
                     {
                         name: 'description',
                         type: 'varchar'
+                    },
+                    {
+                        name: 'created_At',
+                        type: 'timestamp',
+                        default: 'now()'
+                    },
+                    {
+                        name: 'updated_At',
+                        type: 'timestamp',
+                        default: 'now()'
                     }
                 ]
             })

@@ -18,16 +18,6 @@ export default class CreateStudent1606078739195 implements MigrationInterface {
                 {
                     name: 'key',
                     type: 'varchar(45)'
-                },
-                {
-                    name: 'created_At',
-                    type: 'timestamp',
-                    default: 'now()'
-                },
-                {
-                    name: 'update_At',
-                    type: 'timestamp',
-                    default: 'now()'
                 }
             ]
         }))

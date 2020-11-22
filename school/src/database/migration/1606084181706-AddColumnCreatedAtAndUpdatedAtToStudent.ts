@@ -1,24 +1,24 @@
 import {MigrationInterface, QueryRunner, TableColumn} from "typeorm";
 
-export default class AddColumnCreatedAtAndUpdateAtToLesson1606077826524 implements MigrationInterface {
+export class AddColumnCreatedAtAndUpdatedAtToStudent1606084181706 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
-        queryRunner.addColumn('Lesson', new TableColumn({
+        await queryRunner.addColumn('Student', new TableColumn({
             name: 'created_At',
             type: 'timestamp',
             default: 'now()'
         }))
 
-        queryRunner.addColumn('Lesson', new TableColumn({
-            name: 'update_At',
+        await queryRunner.addColumn('Student', new TableColumn({
+            name: 'updated_At',
             type: 'timestamp',
             default: 'now()'
         }))
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        queryRunner.dropColumn('Lesson', 'created_At')
-        queryRunner.dropColumn('Lesson', 'update_At')
+        await queryRunner.dropColumn('Student', 'crated_At')
+        await queryRunner.dropColumn('Student', 'updated_At')
     }
 
 }
