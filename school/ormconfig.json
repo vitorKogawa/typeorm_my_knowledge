@@ -5,7 +5,7 @@
    "database":"school",
    "username": "postgres",
    "password": "basket4433",
-   "synchronize": true,
+   "synchronize": false,
    "logging": false,
    "entities": [
       "src/database/entity/**/*.ts"

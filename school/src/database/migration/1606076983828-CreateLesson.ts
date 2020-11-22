@@ -4,7 +4,7 @@ import {
     Table
 } from "typeorm";
 
-export class CreateLesson1606076983828 implements MigrationInterface {
+export default class CreateLesson1606076983828 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         queryRunner.createTable(
