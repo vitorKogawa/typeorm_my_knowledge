@@ -26,6 +26,7 @@ export class CreateLesson1606076983828 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+        queryRunner.dropTable('Lesson')
     }
 
 }
