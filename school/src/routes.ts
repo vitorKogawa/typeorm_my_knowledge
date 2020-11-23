@@ -1,7 +1,10 @@
 import { Router } from 'express'
 
-const router = Router()
+//importando os arquivos de rotas
+import ClasseRoutes from './routes/class.routes'
 
+const routes = Router()
 
+routes.use('/class', ClasseRoutes)
 
-export default router
+export default routes
