@@ -2,9 +2,12 @@ import {
     Column, 
     CreateDateColumn, 
     Entity, 
+    JoinColumn, 
+    OneToOne, 
     PrimaryGeneratedColumn, 
     UpdateDateColumn
 } from "typeorm";
+import { Lesson } from "./Lesson";
 
 @Entity('content')
 export class Content {
@@ -21,9 +24,17 @@ export class Content {
     })
     linkContent: string;
 
-    @CreateDateColumn()
+    @OneToOne(type => Lesson, content => Content)
+    @JoinColumn()
+    lesson: Lesson;
+
+    @CreateDateColumn({
+        name: 'created_at'
+    })
     created_at: Date;
 
-    @UpdateDateColumn()
+    @UpdateDateColumn({
+        name: 'updated_at'
+    })
     updated_at: Date;
 }

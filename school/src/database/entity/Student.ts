@@ -2,11 +2,14 @@ import {
     Column, 
     CreateDateColumn, 
     Entity, 
+    JoinTable, 
+    ManyToMany, 
     PrimaryGeneratedColumn, 
     UpdateDateColumn
 } from "typeorm";
+import Class from "./Class";
 
-@Entity()
+@Entity('student')
 export class Student {
     @PrimaryGeneratedColumn()
     id: number;
@@ -21,9 +24,17 @@ export class Student {
     })
     key: string;
 
-    @CreateDateColumn()
+    @ManyToMany(type => Class)
+    @JoinTable()
+    classes: Class;
+
+    @CreateDateColumn({
+        name: 'created_at'
+    })
     created_at: Date;
 
-    @UpdateDateColumn()
+    @UpdateDateColumn({
+        name: 'updated_at'
+    })
     updated_at: Date;
 }

@@ -2,11 +2,15 @@ import {
     Column, 
     CreateDateColumn, 
     Entity, 
+    ManyToOne, 
+    OneToOne, 
     PrimaryGeneratedColumn, 
     UpdateDateColumn
 } from "typeorm";
+import Class from "./Class";
+import { Content } from "./Content";
 
-@Entity()
+@Entity('lesson')
 export class Lesson {
     @PrimaryGeneratedColumn()
     idAula: number;
@@ -14,9 +18,19 @@ export class Lesson {
     @Column()
     description: string;
 
-    @CreateDateColumn()
+    @OneToOne(type => Content, lesson => Lesson)
+    content: Content;
+
+    @ManyToOne(type => Class, lessons => Lesson)
+    classe: Class;
+
+    @CreateDateColumn({
+        name: 'created_at'
+    })
     created_at: Date;
 
-    @UpdateDateColumn()
+    @UpdateDateColumn({
+        name: 'updated_at'
+    })
     updated_at: Date;
 }
