@@ -20,7 +20,7 @@ disciplineRouter.post('/', async (request, response) => {
 disciplineRouter.get('/', async (request, response) => {
     try {
         const repository = getRepository(Discipline)
-        const all_disciplines = await repository.find()
+        const all_disciplines = await repository.find({ cache: true })
         return response.json(all_disciplines)
     } catch (error) {
         return response.json(error)

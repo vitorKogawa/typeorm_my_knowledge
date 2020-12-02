@@ -6,7 +6,7 @@ import studentRoutes from './student.routes'
 
 const routes = Router()
 
-routes.use('/class', disciplineRouter)
+routes.use('/discipline', disciplineRouter)
 routes.use('/student', studentRoutes)
 
 export default routes
