@@ -8,20 +8,17 @@ import {
     UpdateDateColumn
 } from "typeorm";
 import Class from "./Class";
-import { Content } from "./Content";
+import Content from "./Content";
 
 @Entity('lesson')
-export class Lesson {
+export default class Lesson {
     @PrimaryGeneratedColumn()
     idAula: number;
 
     @Column()
     description: string;
 
-    @OneToOne(type => Content, lesson => Lesson)
-    content: Content;
-
-    @ManyToOne(type => Class, lessons => Lesson)
+    @ManyToOne(() => Class, classe => classe.lessons)
     classe: Class;
 
     @CreateDateColumn({

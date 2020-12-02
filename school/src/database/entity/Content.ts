@@ -7,10 +7,10 @@ import {
     PrimaryGeneratedColumn, 
     UpdateDateColumn
 } from "typeorm";
-import { Lesson } from "./Lesson";
+import Lesson from "./Lesson";
 
 @Entity('content')
-export class Content {
+export default class Content {
     @PrimaryGeneratedColumn('uuid')
     id: number;
 
@@ -24,7 +24,7 @@ export class Content {
     })
     linkContent: string;
 
-    @OneToOne(type => Lesson, content => Content)
+    @OneToOne(() => Lesson)
     @JoinColumn()
     lesson: Lesson;
 
