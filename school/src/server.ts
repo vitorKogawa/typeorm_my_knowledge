@@ -1,5 +1,5 @@
 import * as express from 'express'
-import routes from './routes'
+import routes from './routes/routes'
 import './config/env'
 import './database/index'
 
@@ -12,4 +12,4 @@ server.use('*', (request, response) => {
     response.send('<h1>Status: Online!</h1>')
 })
 
-server.listen(port, () => console.log('Servidor rodando na porta: ', port))
+server.listen(port, () => console.log('Servidor rodando 🔥 na porta: ', port))

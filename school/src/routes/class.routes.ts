@@ -1,10 +1,10 @@
-import { Request, Response, Router } from 'express'
+import { Router } from 'express'
 import { getRepository } from 'typeorm'
 import Class from '../database/entity/Class'
 
 const classRouter = Router()
 
-classRouter.post('/', async (request: Request, response: Response) => {
+classRouter.post('/', async (request, response) => {
     try {
         const repository = getRepository(Class)
         const { name, duration } = request.body
@@ -17,7 +17,7 @@ classRouter.post('/', async (request: Request, response: Response) => {
     }
 })
 
-classRouter.get('/', async (request: Request, response: Response) => {
+classRouter.get('/', async (request, response) => {
     try {
         const repository = getRepository(Class)
         const all_clases = await repository.find()
