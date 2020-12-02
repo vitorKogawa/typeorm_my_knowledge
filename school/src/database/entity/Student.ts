@@ -13,7 +13,7 @@ import {
     MinLength
 } from 'class-validator'
 
-import Class from "./Class";
+import Class from "./Discipline";
 
 @Entity('student')
 export default class Student {

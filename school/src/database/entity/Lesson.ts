@@ -7,8 +7,7 @@ import {
     PrimaryGeneratedColumn, 
     UpdateDateColumn
 } from "typeorm";
-import Class from "./Class";
-import Content from "./Content";
+import Discipline from "./Discipline";
 
 @Entity('lesson')
 export default class Lesson {
@@ -18,8 +17,8 @@ export default class Lesson {
     @Column()
     description: string;
 
-    @ManyToOne(() => Class, classe => classe.lessons)
-    classe: Class;
+    @ManyToOne(() => Discipline, discipline => discipline.lessons)
+    discipline: Discipline;
 
     @CreateDateColumn({
         name: 'created_at'
