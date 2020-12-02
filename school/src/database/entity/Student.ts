@@ -7,6 +7,7 @@ import {
     PrimaryGeneratedColumn, 
     UpdateDateColumn
 } from "typeorm";
+
 import { 
     IsEmail,
     MaxLength, 
@@ -14,6 +15,7 @@ import {
 } from 'class-validator'
 
 import Class from "./Discipline";
+import { MyCrypto } from "../../helpers/crypto";
 
 @Entity('student')
 export default class Student {
@@ -21,7 +23,8 @@ export default class Student {
     id: number;
 
     @Column({
-        length: 45
+        length: 45,
+        transformer: MyCrypto
     })
     @MaxLength(50, {
         message: 'Um nome deve ter no máximo 50 caracteres.'
@@ -32,11 +35,14 @@ export default class Student {
     name: string;
 
     @Column({
-        length: 45
+        length: 45,
+        transformer: MyCrypto
     })
     key: string;
 
-    @Column()
+    @Column({
+        transformer: MyCrypto
+    })
     @IsEmail()//utilizando class validator para definir que este é um campo do tipo email, e só pode aceitar valores no formato de email
     email: string;
 
